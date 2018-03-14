@@ -11,7 +11,9 @@ FPS = 30
 SCREENWIDTH  = 288
 SCREENHEIGHT = 512
 
-pygame.init()
+#pygame.init()
+pygame.font.init()
+pygame.display.init()
 FPSCLOCK = pygame.time.Clock()
 SCREEN = pygame.display.set_mode((SCREENWIDTH, SCREENHEIGHT))
 pygame.display.set_caption('Flappy Bird')

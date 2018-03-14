@@ -9,6 +9,21 @@
 # --------------------------------------------------------
 
 import sys
+sys.path.insert(0, '/home/mingzhang/work/dmlc/python_mxnet/mxnet_v1.0.5/python')
+#sys.path.insert(0, '/home/mingzhang/work/dmlc/python_mxnet/python')
+sys.path.append("game/")
+#import mxnet as mx
+#print 'version:', mx.__version__
+#try:
+#  print '#!#%!#$%!#$%   0'
+#  from mxnet.base import _generate_op_module_signature
+#  print '#!#%!#$%!#$%   1'
+#  from mxnet.ndarray.register import _generate_ndarray_function_code
+#  from mxnet.symbol.register import _generate_symbol_function_code
+#  _generate_op_module_signature('mxnet', 'symbol', _generate_symbol_function_code)
+#  _generate_op_module_signature('mxnet', 'ndarray', _generate_ndarray_function_code)
+#except:
+#  pass
 
 FLG_GPU = True # using gpu or cpu
 GAME = 'bird' # the name of the game being played for log files
@@ -27,4 +42,3 @@ WIDTH = 80 # width of input image
 UPDATE_STEP = 100 # target net updating period
 SAVE_STEP = 10000 # saving the params per step period
 
-sys.path.append("game/")

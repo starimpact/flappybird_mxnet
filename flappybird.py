@@ -24,7 +24,7 @@ class DQNBird(object):
         self.replayMemory = deque()
         self.timestep = 0
         if FLG_GPU:
-            self.ctx = mx.gpu()
+            self.ctx = mx.gpu(7)
         else:
             self.ctx = mx.cpu()
         if args.mode == 'train':

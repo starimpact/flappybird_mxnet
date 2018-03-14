@@ -8,8 +8,9 @@ This project follows the description of the Deep Q Learning algorithm described 
 * mxnet
 * pygame
 * OpenCV-Python
-
-sudo apt-get install python-pygame
+```
+install pygame: sudo apt-get install python-pygame
+```
 ## Usage
 
 - download the source code

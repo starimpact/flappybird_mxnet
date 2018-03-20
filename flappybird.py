@@ -24,7 +24,7 @@ class DQNBird(object):
         self.replayMemory = deque()
         self.timestep = 0
         if FLG_GPU:
-            self.ctx = mx.gpu(7)
+            self.ctx = mx.gpu(0)
         else:
             self.ctx = mx.cpu()
         if args.mode == 'train':
@@ -34,14 +34,14 @@ class DQNBird(object):
             self.q_net.init_optimizer(optimizer='adam', optimizer_params={'learning_rate': 0.0002, 'wd': 0.0, 'beta1': 0.5})
             if args.pretrain:
                 self.q_net.load_params(args.pretrain)
-                print "load pretrained file......"
+                print("load pretrained file......")
 
         self.tg_net = mx.mod.Module(symbol=self.createNet(), data_names=['frame',], label_names=[], context=self.ctx)
         self.tg_net.bind(data_shapes=[('frame', (1, FRAME, HEIGHT, WIDTH))], for_training=False)
         self.tg_net.init_params(initializer=mx.init.Xavier(factor_type='in', magnitude=2.34))
         if args.pretrain:
             self.tg_net.load_params(args.pretrain)
-            print "load pretrained file......"
+            print("load pretrained file......")
 
 
     def createNet(self, type=0):
@@ -103,7 +103,7 @@ class DQNBird(object):
         # periodically update the target net to ensure convergence
         if self.timestep % UPDATE_STEP ==0:
             arg_params, aux_params = self.q_net.get_params()
-            print "update target network......."
+            print("update target network.......")
             self.tg_net.init_params(initializer=None, arg_params=arg_params, aux_params=aux_params, force_init=True)
 
 
@@ -165,7 +165,7 @@ class DQNBird(object):
                     state = "explore"
                 else:
                     state = "train"
-                print "TIMESTEP", self.timestep, "/ STATE", state, "/ EPSILON", epsilon, "/ ACTION", action_index, "/ REWARD", r_t, "/ Q ", qvalue
+                print("TIMESTEP", self.timestep, "/ STATE", state, "/ EPSILON", epsilon, "/ ACTION", action_index, "/ REWARD", r_t, "/ Q ", qvalue)
             s_t = s_t1
             self.timestep += 1
 

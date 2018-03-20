@@ -9,7 +9,8 @@
 # --------------------------------------------------------
 
 import sys
-sys.path.insert(0, '/home/mingzhang/work/dmlc/python_mxnet/mxnet_v1.0.5/python')
+#sys.path.insert(0, '/home/mingzhang/work/dmlc/python_mxnet/mxnet_v1.0.5/python')
+sys.path.insert(0, '/home/mingzhang/work/dmlc/python_mxnet/python')
 #sys.path.insert(0, '/home/mingzhang/work/dmlc/python_mxnet/python')
 sys.path.append("game/")
 #import mxnet as mx
